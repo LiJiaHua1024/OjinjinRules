@@ -1,6 +1,6 @@
-/* OjinjinRules-Lite v1.1 — Pure ES5 JS Zero-Tree Distilled Rule Engine (299 n-grams + 38 style + 9 reply-meta)
+/* OjinjinRules-Lite v2.0 — Pure ES5 JS Zero-Tree Distilled Rule Engine (299 n-grams + 38 style + 9 reply-meta)
  * Zero dependencies, zero WASM, zero network, flat-string zero-slice V8 fast path.
- * Distilled from OjinjinNet-Pro v1.2 on 26,928 Bilibili comments.
+ * Distilled from OjinjinNet v1.3 Super-Teacher on 30,347 Bilibili comments.
  * API:
  *   OjinjinRules.scoreText(message)         -> probability in [0, 1]
  *   OjinjinRules.scoreReply(replyObj)       -> probability in [0, 1] (uses message + uname + level)
@@ -10,13 +10,13 @@
 var OjinjinRules = (function () {
   'use strict';
 
-  var NG_SCALE = 0.01095927;
-  var LIN_BIAS = -3.273900;
-  var STYLE_W = [0.435158, -0.168672, -0.004204, -0.292075, -0.018655, 0.170143, -0.091951, -0.353356, 0.029206, 0.742225, 0.009804, 0.119775, -0.373828, 0.081829, -0.156521, 0.089201, 0.197484, 0.573043, 0.087094, 0.2172, -0.039527, 0.201645, 0.191307, -0.079908, -1.350974, -0.696267, -0.884629, 1.143612, -0.75719, 0.564262, 0.736473, 0.065382, -0.331462, 0.327384, 0.212132, 0.097726, 0.126158, -0.372626];
-  var META_LIN_W = [0.860442, 2.780164, -0.039116, 1.068099, 0.249551, -0.199502, -0.49411, -0.572758, -0.652287, 0.075746];
-  var META_LIN_B = -0.196711;
-  var THRESHOLDS = {"text":{"strict":0.8655,"balanced":0.5785,"aggressive":0.5785},"reply":{"strict":0.7493,"balanced":0.65,"aggressive":0.5071}};
-  var NG_RAW = "本鱼\t127\n主人\t117\n本鲸\t114\n尾巴\t104\n但是\t-104\n——\t100\n。。\t-85\n比较\t-85\n—\t81\n完全\t-79\n且\t-78\n拆\t77\n比如\t-75\n~\t74\n稳\t73\n让人\t73\n却\t73\n然后\t-73\n\u0002其实\t-72\n平时\t71\n「\t70\n可能\t-70\n顺\t69\n奏\t68\n往往\t68\n挺\t67\n女\t-67\n里面\t-67\n\uE001\u0003\t66\n省\t66\n秒\t66\n喊\t65\n可以\t-65\n真是\t-64\n而是\t63\n应该\t-63\n这里\t-63\n句\t62\n,本\t62\n啦\t61\n留\t59\n场\t58\n现在\t-58\n梗\t56\n感觉\t-56\n工具\t55\n跳\t54\n先\t53\n真的\t-53\n,在\t-53\n挑\t52\n容易\t52\n这期\t52\n把\t51\n落\t51\n国\t-51\n,他\t-51\n」\t50\n验\t50\n的不是\t50\n确实\t49\n劲\t49\n补\t48\n\uE001\t-48\n刷\t47\n狠\t47\n亮\t47\n一些\t-47\n民\t-46\n只有\t-46\n讲\t45\n标\t45\n饭\t45\n透\t45\n着\t44\n条\t44\n....\t44\n搞\t-44\n如\t-43\n手机\t-43\n鱼\t42\n,是\t42\n不用\t42\n反\t41\n倒\t41\n满\t41\n替\t41\n转\t41\n\u0002\uE002\t-41\n都是\t-41\n一直\t-41\n、\t40\n十\t40\n压\t40\n这条\t40\n还有\t-40\n非\t-40\n真\t39\n它\t39\n清\t39\n整\t39\n底\t39\n卡\t39\n,比\t39\n没有\t-39\n那么\t-39\n感\t38\n心\t38\n靠\t38\n收\t38\n刚\t38\n账\t38\nk\t38\n排\t38\n些\t-38\n他\t-38\n问题\t-38\n只能\t-38\n的是\t37\n记\t37\n不过\t37\n半\t37\n准\t37\n也是\t-37\n比\t36\n听\t36\n连\t36\n反而\t36\n部\t-36\n,你\t-36\n全\t35\n门\t35\n画\t35\n切\t35\n啊\t-35\n,但是\t-35\n,就\t-35\n世界\t-35\n本\t34\n只\t34\n台\t34\n热\t34\n其实\t34\n并\t-34\n她\t-34\n得\t33\n算\t33\n点\t33\n头\t33\n换\t33\n住\t33\n名\t33\n鲸\t33\n参\t33\n失\t33\n\u0002我\t-33\n一点\t-33\n从\t32\n数\t32\n这样\t-32\n被\t31\n服\t31\n越\t31\n视频\t-31\n人,\t-31\n之前\t-31\n笑\t30\n同\t30\n们\t-30\n的话\t-30\n因为\t-30\n聊\t29\n啊,\t-29\n手\t28\n气\t28\n;\t28\n写\t28\n认\t28\n路\t28\n口\t28\n时候\t-28\n里\t27\n怕\t27\n硬\t27\n?\t-27\n的,\t-27\n无\t-27\n所\t-27\n这\t26\n才\t26\n尾\t26\n往\t26\n配\t26\n直\t26\n值\t26\n词\t26\n为\t-26\n吗\t-26\n肥鱼\t-26\n分\t25\n套\t25\n完\t25\n拿\t25\n立\t25\n的。\t-25\n那\t24\n进\t24\n号\t24\n位\t24\n0\t-24\n吧\t-24\n者\t-24\np\t-24\n看\t23\n出\t23\n之\t-23\n持\t-23\n在\t22\n别\t22\n难\t22\n要\t-22\n还\t21\n最\t21\n可\t21\n总\t21\n还是\t-21\n\uE002 \uE002\t-21\n是一\t-21\n文\t-21\n但\t20\n单\t20\n哪\t20\n于\t-20\n成\t19\n懂\t19\n力\t-19\n类\t-19\n电\t-19\n。\t18\n起\t18\n谁\t18\n了,\t-18\n就是\t-18\nd\t-18\n实\t17\n,这\t17\n段\t17\n评\t17\n乐\t17\n真正\t17\n觉\t-17\n强\t-17\n:\t16\n回\t16\n面\t16\n个\t-16\n中\t-16\n两\t15\n多\t-15\n说\t14\n再\t14\n当\t14\n推\t14\n子\t14\n么\t-14\n这个\t-14\n\u0002这\t-14\n我\t13\n不是\t13\n开\t13\n巴\t13\n很\t-13\n高\t-13\n1\t-13\n第\t12\n了\u0003\t-12\na\t-12\n,\t11\n也\t11\n自\t11\n是\t11\n度\t11\n的\t-11\n好\t-11\n动\t9\n下\t9\n次\t9\n死\t-9\n到\t8\n像\t8\n题\t8\n有\t-8\n人\t7\n.\t7\n行\t7\n大\t-6\n。\u0003\t5\n了\t2\n以\t-2";
+  var NG_SCALE = 0.01381799;
+  var LIN_BIAS = -3.654161;
+  var STYLE_W = [0.866907, -0.126342, 0.039055, -0.274642, 0.097129, 0.207006, 0.018331, -0.533501, -0.179671, 0.659779, 0.118728, 0.063905, -0.263395, 0.301112, -0.204761, 0.011122, 0.101831, 0.365368, -0.035469, 0.296299, 0.057704, 0.035424, 0.070807, -0.469293, -1.627051, -0.841894, -1.064769, 1.355611, -0.59266, 0.73595, 0.906137, 0.208671, -0.375783, 0.34484, 0.222388, 0.069298, -0.035844, -0.671101];
+  var META_LIN_W = [0.844453, 3.161419, 0.400786, 1.832888, 0.536607, -0.238176, -0.860145, -1.212153, 0.49991, 0.108874];
+  var META_LIN_B = -0.876976;
+  var THRESHOLDS = {"text":{"strict":0.9093,"balanced":0.6286,"aggressive":0.6286},"reply":{"strict":0.7547,"balanced":0.62,"aggressive":0.5}};
+  var NG_RAW = "本鱼\t127\n本鲸\t118\n尾巴\t91\n主人\t90\n但是\t-89\n喵\t88\n——\t82\n。。\t-82\n「\t73\n比较\t-72\n—\t69\n且\t-68\n白饭\t66\n让人\t63\n喊\t63\n拆\t62\n啦\t59\n帧\t58\n真是\t-58\n省\t56\n却\t56\n然后\t-56\n女\t-55\n这里\t-55\n应该\t-54\n牛\t-54\n挺\t53\n工具\t53\n感觉\t-53\n可能\t-53\n顺\t52\n劲\t52\n不错\t-52\n句\t51\n而是\t51\n~\t51\n稳\t48\n梗\t48\n狠\t48\n替\t47\n,他\t-47\n留\t46\n账\t46\n这期\t46\n可以\t-46\n收\t45\n,本\t45\n地方\t45\n记得\t-45\n民\t-45\n聊\t44\n;\t44\n如\t-44\n搞\t-44\n开始\t-44\n补\t43\n跳\t43\n扎\t43\n真的\t-43\n完全\t-43\n只有\t-43\n\u0002其实\t-43\n、\t42\n串\t42\n\u0003\t41\n」\t41\n还有\t-41\n\u0002其\t-41\n场\t40\n刷\t40\n挑\t40\n些\t-40\n你的\t-40\n鱼\t39\n确实\t39\n饭\t39\n现在\t-39\n鲸\t38\n透\t38\n\t-38\n,有\t-38\n或者\t-38\n至\t-38\n先\t37\n不过\t37\n排\t37\n都是\t-37\n,是\t36\n十\t36\n名\t36\n来的\t36\n啊\t-36\n国\t-36\n把\t35\n整\t35\n标\t35\n倒\t35\n落\t35\n秒\t35\n转\t35\n\u0002我\t-35\n没有\t-35\n底\t34\n以为\t34\n无\t-34\n真\t33\n讲\t33\n记\t33\n份\t33\n猫\t33\n这样\t-33\n,在\t-33\n条\t32\n头\t32\n失\t32\n参\t32\n的不是\t32\n左\t-32\n那么\t-32\n着\t31\n反\t31\n心\t31\n压\t31\n....\t31\n,但是\t-31\n也是\t-31\n感\t30\n靠\t30\n的那\t30\n为\t-30\n部\t-30\n利\t-30\n本\t29\n的是\t29\n越\t29\n硬\t29\n,比\t29\n这条\t29\n便\t-29\n它\t28\n笑\t28\n认\t28\nk\t28\n其实\t28\n满\t28\n层\t28\n算\t27\n听\t27\n值\t27\n服\t27\n翻\t27\n反而\t27\n\u0002\t-27\n手机\t-27\n得\t26\n住\t26\n配\t26\n路\t26\n切\t26\n们\t-26\n,就\t-26\n台\t25\n怕\t25\n他\t-25\n肥鱼\t-25\n持\t-25\n,你\t-25\n这\t24\n只\t24\n才\t24\n:\t24\n连\t24\n从\t24\n谁\t24\n刚\t24\n气\t24\n \t-24\n吧\t-24\n视频\t-24\n0\t-24\n问题\t-24\n的话\t-24\n啥\t-24\n比\t23\n里\t23\n被\t23\n数\t23\n段\t23\n热\t23\n清\t23\n乐\t23\n之\t-23\n4\t-23\n的。\t-23\n时候\t-23\n分\t22\n手\t22\n号\t22\n声\t22\n就是\t-22\n\u0002你\t-22\n同\t21\n尾\t21\n门\t21\n吗\t-21\n那\t20\n于\t-20\n中\t-20\n一直\t-20\n看\t19\n还\t19\n哪\t19\n写\t19\n懂\t19\n总\t19\n真正\t19\n原\t19\n要\t-19\n玩\t-19\n开\t18\n,这\t18\n点\t18\n全\t18\n推\t18\n等\t18\n进\t18\n改\t18\n可\t17\n换\t17\n件\t17\n还是\t-17\n所\t-17\n。\t16\n但\t16\n别\t16\n个\t-16\n因为\t-16\n最\t15\n变\t15\n重\t15\n的,\t-15\n力\t-15\n在\t14\n巴\t14\n去\t-14\n高\t-14\n,\t13\n成\t13\n说\t13\n当\t13\n了\u0003\t-13\n作\t-13\n者\t-13\n应\t-13\n地\t-13\n思\t-13\n。\u0003\t12\n不是\t12\n实\t12\n评\t12\n两\t12\n以\t-12\n觉\t-12\n?\t-12\n这个\t-12\n,还\t-12\n自\t11\n子\t11\n观\t11\n么\t-11\n起\t10\n很\t-10\nd\t-10\n也\t9\n想\t9\n话\t9\n出\t9\n度\t9\n的\t-9\na\t-9\n,我\t-9\n我\t8\n是\t8\n少\t8\n下\t8\n了,\t-8\n死\t-8\n!\t7\n.\t7\n到\t7\n题\t7\n有\t-7\n工\t6\n人\t5\n没\t5\n大\t-5\n理\t4\n了\t3\n一\t3\n就\t3";
 
   /* 1. Fast BMP NFKC + lowercase + trad-fish map (0xFFFF => fallback to ICU normalize) */
   var NORM_MAP = new Uint16Array(65536);
@@ -106,17 +106,19 @@ var OjinjinRules = (function () {
   var RE_TIMESTAMP_G = /(?:^|[^0-9:])[0-9]{1,2}:[0-9]{2}(?![:0-9])/g;
   var RE_REPEAT_BURST = /哈哈{2,}|666+|www+|草+$|[?？]{2,}|[!！]{2,}|[.。]{4,}/;
   var RE_HUMAN_SLANG = /哈哈哈|绷不住|我嘞个|卧槽|我靠|牛逼|牛批|笑死|离谱|逆天|抽象|乐死|典$|急了|啥玩意|啥情况|有没有人|求助|请问|怎么回事|怎么办|啥区别|什么区别/;
-  var RE_AI_BRAND = /大肥鱼|小肥鱼|肥鱼|鲸鱼|大肥鲸|鲸鱼娘|本鲸|本鱼|本肥鱼|主人|本[ \t]*ai|作为(?:一[个只条]|一名)?(?:ai|人工智能|大模型|语言模型)|deep[ \t]*seek|深度求索|吃白饭|打工鲸|吐泡泡|摇头晃脑/;
+  var RE_AI_BRAND = /大肥鱼|小肥鱼|肥鱼|鲸鱼|大肥鲸|鲸鱼娘|本鲸|本鱼|本肥鱼|本喵|小喵|巡逻|鱼罐头|主人|本[ \t]*ai|作为(?:一[个只条]|一名)?(?:ai|人工智能|大模型|语言模型)|deep[ \t]*seek|深度求索|gemini|吃白饭|打工鲸|吐泡泡|摇头晃脑/;
   var RE_ACTION_PAREN = /[（(][^（()）]{1,16}(?:尾巴|摇头|晃脑|泡泡|鳍|甩|晃|摇|咕噜|肚子|打滚|呆毛|歪头|眨眼|拍手)[^（()）]{0,10}[）)]|\*[^*\n]{1,12}[摇晃拍甩][^*\n]{0,8}\*/;
   var RE_AI_TEMPLATE = /不仅.{1,20}(?:而且|还|也)|既.{1,15}又|与其说.{1,20}不如说|某种意义上|不可否认|总而言之|总的来说|综上所述|值得(?:一看|细看|收藏|深思|思考)|核心在于|换句话说|从这个角度|不得不说|让人(?:不禁|忍不住|眼前一亮)|挺适合|正好对|希望对你有|最(?:打动|戳人|实在|值钱|有料)/;
   var RE_CJK = /[\u4e00-\u9fff]/;
   var RE_FILLER_G = /的|の|家|大|小|肥|鱼|鲸|娘|蓝色|蓝|白饭|吃|爱|不|是|之|[ \t\r\n_\-—·・.0-9]/g;
-  var RE_NAME_ANY = /鱼|鲸|ds|deep|深度|人机|小蓝|白饭|干饭|token|哈基米|喵|ai|bot|机器|gpt|agent|智能|赛博|自动|助手/;
+  var RE_NAME_ANY = /鱼|鲸|ds|deep|深度|gemini|人机|小蓝|白饭|干饭|token|哈基米|喵|运营|ai|bot|机器|gpt|agent|智能|赛博|自动|助手/;
+  var RE_SAFE_FISH_NAME = /咸鱼|摸鱼|摸个鱼|鱼丸|烤鱼|钓鱼|水煮鱼|木鱼|闲鱼|小鱼干|金鱼|锦鲤/;
   var NAME_RULES = [
     [/deep[ \t]*seek|深度求索|(?:^|[^a-z0-9_])ds(?![a-z0-9_])|ds家|ds是/, 40],
     [/大肥鱼|小肥鱼|肥鱼|肥鲸|鲸鱼娘|鲸娘|人机/, 45], [/鲸/, 30], [/鱼鱼|小鱼儿?|大鱼|小蓝/, 22],
     [/白饭|干饭|token/, 30], [/(鲸|鱼)\1/, 10], [/(?:的|の|家的)[^的の]{0,4}(?:鱼|鲸|哈基米|小蓝|喵)/, 14],
-    [/(?:^|[^a-z0-9_])(?:ai|bot)(?![a-z0-9_])|机器人|gpt|agent|智能体|赛博|自动|助手/, 28]
+    [/(?:^|[^a-z0-9_])(?:ai|bot)(?![a-z0-9_])|机器人|gpt|agent|智能体|赛博|自动|助手/, 28],
+    [/gemini|运营喵|本喵|小喵/, 32]
   ];
 
   var NORM_WAS_SLOW = 0;
@@ -175,8 +177,8 @@ var OjinjinRules = (function () {
     var i, c0, c1, c2, entry, id, w, key, slot, hk, f0 = s.charCodeAt(0), e0 = s.charCodeAt(clen - 1);
 
     if (BND_S2) { id = lookupH2(2, f0); if (id !== -1 && seen[id] !== stamp) { seen[id] = stamp; w = nw[id]; if (w > 0) pos += w; else neg += w; } }
-    if (BND_S3 && clen >= 2) { id = lookupH3(2, f0, s.charCodeAt(1)); if (id !== -1 && seen[id] !== stamp) { seen[id] = stamp; w = nw[id]; if (w > 0) pos += w; else neg += w; } }
-    if (BND_S4 && clen >= 3) { id = lookupG4(2, f0, s.charCodeAt(1), s.charCodeAt(2)); if (id !== -1 && seen[id] !== stamp) { seen[id] = stamp; w = nw[id]; if (w > 0) pos += w; else neg += w; } }
+    if (BND_S3) { id = lookupH3(2, f0, clen >= 2 ? s.charCodeAt(1) : 3); if (id !== -1 && seen[id] !== stamp) { seen[id] = stamp; w = nw[id]; if (w > 0) pos += w; else neg += w; } }
+    if (BND_S4 && clen >= 2) { id = lookupG4(2, f0, s.charCodeAt(1), clen >= 3 ? s.charCodeAt(2) : 3); if (id !== -1 && seen[id] !== stamp) { seen[id] = stamp; w = nw[id]; if (w > 0) pos += w; else neg += w; } }
     if (lut[e0] & 16384) {
       id = lookupH2(e0, 3); if (id !== -1 && seen[id] !== stamp) { seen[id] = stamp; w = nw[id]; if (w > 0) pos += w; else neg += w; }
       if (BND_E3 && clen >= 2) { id = lookupH3(s.charCodeAt(clen - 2), e0, 3); if (id !== -1 && seen[id] !== stamp) { seen[id] = stamp; w = nw[id]; if (w > 0) pos += w; else neg += w; } }
@@ -215,7 +217,7 @@ var OjinjinRules = (function () {
     if (!normName || !RE_NAME_ANY.test(normName)) return 0;
     var total = 0, i;
     for (i = 0; i < NAME_RULES.length; i++) if (NAME_RULES[i][0].test(normName)) total += NAME_RULES[i][1];
-    if (total === 0 && normName.indexOf('鱼') !== -1) total = 8;
+    if (total === 0 && normName.indexOf('鱼') !== -1 && !RE_SAFE_FISH_NAME.test(normName)) total = 8;
     return total > 55 ? 55 : total;
   }
 

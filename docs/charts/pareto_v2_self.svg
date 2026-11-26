@@ -1,166 +1,175 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1740 640" width="1740" height="640" role="img">
-<style>text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif; } .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }</style>
-<rect width="1740" height="640" rx="14" fill="#0D1117"/>
-<text x="32" y="42" fill="#F0F6FC" font-size="22" font-weight="700">自家家族对决：OjinjinRules（纯 ES5 JS） vs OjinjinNet v1.2（ONNX）</text>
-<text x="32" y="66" fill="#8B949E" font-size="12.5">OjinjinBench-v2 时间外盲测（1,476 条 · 33 个全新视频 · 综合赛道）· 实测 0.068 ms/20条（isAiReply 0.056 ms）· 纯矢量 SVG</text>
-<text x="1437.5" y="40" fill="#58A6FF" font-size="12.5" font-weight="600">● OjinjinNet v1.2 (ONNX + 1KB融合)</text>
-<text x="1163.2" y="40" fill="#3FB950" font-size="12.5" font-weight="600">★ OjinjinRules (纯 ES5 JS · 0依赖)</text>
-<rect x="30.0" y="84.0" width="547.3" height="530.0" rx="12" fill="#161B22" stroke="#30363D" stroke-width="1"/>
-<text x="48.0" y="112.0" fill="#F0F6FC" font-size="15" font-weight="700">1. 体积 vs 准确率 (Best F0.5)</text>
-<rect x="84.0" y="136.0" width="137.1" height="215.0" fill="#3FB950" fill-opacity="0.09"/>
-<line x1="84.0" y1="566.0" x2="555.3" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="76.0" y="569.5" text-anchor="end" fill="#8B949E" font-size="10.5">88%</text>
-<line x1="84.0" y1="480.0" x2="555.3" y2="480.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="76.0" y="483.5" text-anchor="end" fill="#8B949E" font-size="10.5">90%</text>
-<line x1="84.0" y1="394.0" x2="555.3" y2="394.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="76.0" y="397.5" text-anchor="end" fill="#8B949E" font-size="10.5">92%</text>
-<line x1="84.0" y1="308.0" x2="555.3" y2="308.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="76.0" y="311.5" text-anchor="end" fill="#8B949E" font-size="10.5">94%</text>
-<line x1="84.0" y1="222.0" x2="555.3" y2="222.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="76.0" y="225.5" text-anchor="end" fill="#8B949E" font-size="10.5">96%</text>
-<line x1="84.0" y1="136.0" x2="555.3" y2="136.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="76.0" y="139.5" text-anchor="end" fill="#8B949E" font-size="10.5">98%</text>
-<line x1="84.0" y1="136.0" x2="84.0" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="84.0" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">10KB</text>
-<line x1="144.6" y1="136.0" x2="144.6" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="144.6" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">30KB</text>
-<line x1="211.1" y1="136.0" x2="211.1" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="211.1" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">100KB</text>
-<line x1="339.4" y1="136.0" x2="339.4" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="339.4" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">1MB</text>
-<line x1="466.5" y1="136.0" x2="466.5" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="466.5" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">10MB</text>
-<line x1="555.3" y1="136.0" x2="555.3" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="555.3" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">50MB</text>
-<rect x="84.0" y="136.0" width="471.3" height="430.0" fill="none" stroke="#30363D" stroke-width="1"/>
-<text x="319.6" y="602.0" text-anchor="middle" fill="#8B949E" font-size="11.5" font-weight="600">体积（对数：10 KB → 50 MB，越左越轻）</text>
-<text x="92.0" y="151.0" fill="#3FB950" font-size="10" font-weight="600">极轻高准区 (&lt;120KB)</text>
-<polyline points="141.6,289.5 157.6,271.0 554.7,192.8" fill="none" stroke="#2EA043" stroke-width="2" stroke-dasharray="6,4" opacity="0.85"/>
-<line x1="141.6" y1="289.5" x2="155.6" y2="225.5" stroke="#586069" stroke-width="1"/>
-<line x1="157.6" y1="271.0" x2="171.6" y2="257.0" stroke="#586069" stroke-width="1"/>
-<line x1="164.6" y1="306.3" x2="164.6" y2="344.3" stroke="#586069" stroke-width="1"/>
-<line x1="350.4" y1="368.6" x2="350.4" y2="338.6" stroke="#586069" stroke-width="1"/>
-<line x1="447.2" y1="340.3" x2="447.2" y2="310.3" stroke="#586069" stroke-width="1"/>
-<line x1="495.3" y1="428.0" x2="495.3" y2="398.0" stroke="#586069" stroke-width="1"/>
-<line x1="554.7" y1="192.8" x2="540.7" y2="208.8" stroke="#586069" stroke-width="1"/>
-<polygon points="141.64,277.99 144.46,285.63 152.59,285.95 146.20,290.99 148.41,298.83 141.64,294.31 134.87,298.83 137.07,290.99 130.68,285.95 138.82,285.63" fill="#3FB950" stroke="#161B22" stroke-width="1.6" stroke-linejoin="round"/>
-<polygon points="157.64,259.50 160.46,267.14 168.59,267.46 162.20,272.50 164.41,280.34 157.64,275.82 150.87,280.34 153.07,272.50 146.68,267.46 154.82,267.14" fill="#3FB950" stroke="#161B22" stroke-width="1.6" stroke-linejoin="round"/>
-<polygon points="164.62,294.76 167.44,302.40 175.57,302.72 169.18,307.76 171.39,315.60 164.62,311.08 157.85,315.60 160.05,307.76 153.66,302.72 161.80,302.40" fill="#3FB950" stroke="#161B22" stroke-width="1.6" stroke-linejoin="round"/>
-<circle cx="350.39" cy="368.63" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<circle cx="447.20" cy="340.25" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<circle cx="495.31" cy="427.97" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<circle cx="554.73" cy="192.76" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<rect x="155.6" y="217.0" width="152.6" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="160.6" y="229.2" fill="#3FB950" font-size="10.8" font-weight="600">Rules-Lite 28.4KB (0树)</text>
-<rect x="171.6" y="248.5" width="135.3" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="176.6" y="260.7" fill="#3FB950" font-size="10.8" font-weight="600">Rules-Compact 38.0KB</text>
-<rect x="109.5" y="335.8" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="114.5" y="348.0" fill="#3FB950" font-size="10.8" font-weight="600">Rules-Pro 43.1KB</text>
-<rect x="295.3" y="330.1" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="300.3" y="342.3" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Nano 1.22MB</text>
-<rect x="392.1" y="301.8" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="397.1" y="313.9" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Lite 7.05MB</text>
-<rect x="440.2" y="389.5" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="445.2" y="401.7" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Std 16.86MB</text>
-<rect x="430.5" y="200.3" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="435.5" y="212.5" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Pro 49.49MB</text>
-<rect x="596.3" y="84.0" width="547.3" height="530.0" rx="12" fill="#161B22" stroke="#30363D" stroke-width="1"/>
-<text x="614.3" y="112.0" fill="#F0F6FC" font-size="15" font-weight="700">2. 单页 20 条耗时 vs 准确率 (Best F0.5)</text>
-<rect x="650.3" y="136.0" width="101.8" height="215.0" fill="#3FB950" fill-opacity="0.09"/>
-<line x1="650.3" y1="566.0" x2="1121.6" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="642.3" y="569.5" text-anchor="end" fill="#8B949E" font-size="10.5">88%</text>
-<line x1="650.3" y1="480.0" x2="1121.6" y2="480.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="642.3" y="483.5" text-anchor="end" fill="#8B949E" font-size="10.5">90%</text>
-<line x1="650.3" y1="394.0" x2="1121.6" y2="394.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="642.3" y="397.5" text-anchor="end" fill="#8B949E" font-size="10.5">92%</text>
-<line x1="650.3" y1="308.0" x2="1121.6" y2="308.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="642.3" y="311.5" text-anchor="end" fill="#8B949E" font-size="10.5">94%</text>
-<line x1="650.3" y1="222.0" x2="1121.6" y2="222.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="642.3" y="225.5" text-anchor="end" fill="#8B949E" font-size="10.5">96%</text>
-<line x1="650.3" y1="136.0" x2="1121.6" y2="136.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="642.3" y="139.5" text-anchor="end" fill="#8B949E" font-size="10.5">98%</text>
-<line x1="650.3" y1="136.0" x2="650.3" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="650.3" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.05ms</text>
-<line x1="729.1" y1="136.0" x2="729.1" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="729.1" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.2ms</text>
-<line x1="820.5" y1="136.0" x2="820.5" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="820.5" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">1ms</text>
-<line x1="883.0" y1="136.0" x2="883.0" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="883.0" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">3ms</text>
-<line x1="951.4" y1="136.0" x2="951.4" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="951.4" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">10ms</text>
-<line x1="1042.8" y1="136.0" x2="1042.8" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1042.8" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">50ms</text>
-<line x1="1121.6" y1="136.0" x2="1121.6" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1121.6" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">200ms</text>
-<rect x="650.3" y="136.0" width="471.3" height="430.0" fill="none" stroke="#30363D" stroke-width="1"/>
-<text x="885.9" y="602.0" text-anchor="middle" fill="#8B949E" font-size="11.5" font-weight="600">单页 20 条耗时（对数：0.05 ms → 200 ms，越左越快）</text>
-<text x="658.3" y="151.0" fill="#3FB950" font-size="10" font-weight="600">百微秒极速区 (0.068ms)</text>
-<polyline points="667.8,289.5 677.7,271.0 1109.4,192.8" fill="none" stroke="#2EA043" stroke-width="2" stroke-dasharray="6,4" opacity="0.85"/>
-<line x1="667.8" y1="289.5" x2="681.8" y2="225.5" stroke="#586069" stroke-width="1"/>
-<line x1="677.7" y1="271.0" x2="691.7" y2="257.0" stroke="#586069" stroke-width="1"/>
-<line x1="686.2" y1="306.3" x2="700.2" y2="340.3" stroke="#586069" stroke-width="1"/>
-<line x1="859.9" y1="368.6" x2="859.9" y2="398.6" stroke="#586069" stroke-width="1"/>
-<line x1="1001.6" y1="340.3" x2="1001.6" y2="310.3" stroke="#586069" stroke-width="1"/>
-<line x1="1045.5" y1="428.0" x2="1045.5" y2="398.0" stroke="#586069" stroke-width="1"/>
-<line x1="1109.4" y1="192.8" x2="1095.4" y2="208.8" stroke="#586069" stroke-width="1"/>
-<polygon points="667.77,277.99 670.59,285.63 678.73,285.95 672.34,290.99 674.54,298.83 667.77,294.31 661.00,298.83 663.21,290.99 656.82,285.95 664.95,285.63" fill="#3FB950" stroke="#161B22" stroke-width="1.6" stroke-linejoin="round"/>
-<polygon points="677.71,259.50 680.53,267.14 688.67,267.46 682.28,272.50 684.48,280.34 677.71,275.82 670.94,280.34 673.15,272.50 666.76,267.46 674.89,267.14" fill="#3FB950" stroke="#161B22" stroke-width="1.6" stroke-linejoin="round"/>
-<polygon points="686.17,294.76 688.99,302.40 697.13,302.72 690.74,307.76 692.94,315.60 686.17,311.08 679.40,315.60 681.61,307.76 675.22,302.72 683.35,302.40" fill="#3FB950" stroke="#161B22" stroke-width="1.6" stroke-linejoin="round"/>
-<circle cx="859.92" cy="368.63" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<circle cx="1001.59" cy="340.25" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<circle cx="1045.49" cy="427.97" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<circle cx="1109.38" cy="192.76" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<rect x="681.8" y="217.0" width="152.6" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="686.8" y="229.2" fill="#3FB950" font-size="10.8" font-weight="600">Rules-Lite 28.4KB (0树)</text>
-<rect x="691.7" y="248.5" width="135.3" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="696.7" y="260.7" fill="#3FB950" font-size="10.8" font-weight="600">Rules-Compact 38.0KB</text>
-<rect x="700.2" y="331.8" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="705.2" y="344.0" fill="#3FB950" font-size="10.8" font-weight="600">Rules-Pro 43.1KB</text>
-<rect x="804.8" y="390.1" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="809.8" y="402.3" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Nano 1.22MB</text>
-<rect x="946.5" y="301.8" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="951.5" y="313.9" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Lite 7.05MB</text>
-<rect x="990.4" y="389.5" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="995.4" y="401.7" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Std 16.86MB</text>
-<rect x="985.2" y="200.3" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="990.2" y="212.5" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Pro 49.49MB</text>
-<rect x="1162.7" y="84.0" width="547.3" height="530.0" rx="12" fill="#161B22" stroke="#30363D" stroke-width="1"/>
-<text x="1180.7" y="112.0" fill="#F0F6FC" font-size="15" font-weight="700">3. 高难真人误杀率 vs 准确率 (Best F0.5)</text>
-<rect x="1216.7" y="136.0" width="94.3" height="215.0" fill="#3FB950" fill-opacity="0.09"/>
-<line x1="1216.7" y1="566.0" x2="1688.0" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1208.7" y="569.5" text-anchor="end" fill="#8B949E" font-size="10.5">88%</text>
-<line x1="1216.7" y1="480.0" x2="1688.0" y2="480.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1208.7" y="483.5" text-anchor="end" fill="#8B949E" font-size="10.5">90%</text>
-<line x1="1216.7" y1="394.0" x2="1688.0" y2="394.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1208.7" y="397.5" text-anchor="end" fill="#8B949E" font-size="10.5">92%</text>
-<line x1="1216.7" y1="308.0" x2="1688.0" y2="308.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1208.7" y="311.5" text-anchor="end" fill="#8B949E" font-size="10.5">94%</text>
-<line x1="1216.7" y1="222.0" x2="1688.0" y2="222.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1208.7" y="225.5" text-anchor="end" fill="#8B949E" font-size="10.5">96%</text>
-<line x1="1216.7" y1="136.0" x2="1688.0" y2="136.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1208.7" y="139.5" text-anchor="end" fill="#8B949E" font-size="10.5">98%</text>
-<line x1="1216.7" y1="136.0" x2="1216.7" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1216.7" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.0%</text>
-<line x1="1311.0" y1="136.0" x2="1311.0" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1311.0" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.2%</text>
-<line x1="1405.2" y1="136.0" x2="1405.2" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1405.2" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.4%</text>
-<line x1="1499.5" y1="136.0" x2="1499.5" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1499.5" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.6%</text>
-<line x1="1593.7" y1="136.0" x2="1593.7" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1593.7" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.8%</text>
-<line x1="1688.0" y1="136.0" x2="1688.0" y2="566.0" stroke="#242B35" stroke-width="1"/>
-<text class="mono" x="1688.0" y="582.0" text-anchor="middle" fill="#8B949E" font-size="10.5">1.0%</text>
-<rect x="1216.7" y="136.0" width="471.3" height="430.0" fill="none" stroke="#30363D" stroke-width="1"/>
-<text x="1452.3" y="602.0" text-anchor="middle" fill="#8B949E" font-size="11.5" font-weight="600">高难真人误杀率 HH-FPR（线性：0.0% → 1.0%，贴左即 0 误杀）</text>
-<text x="1224.7" y="151.0" fill="#3FB950" font-size="10" font-weight="600">0.00% 零误杀 (0/232)</text>
-<polyline points="1216.7,271.0 1428.8,192.8" fill="none" stroke="#2EA043" stroke-width="2" stroke-dasharray="6,4" opacity="0.85"/>
-<line x1="1216.7" y1="289.5" x2="1232.7" y2="281.5" stroke="#586069" stroke-width="1"/>
-<line x1="1216.7" y1="271.0" x2="1232.7" y2="237.0" stroke="#586069" stroke-width="1"/>
-<line x1="1216.7" y1="306.3" x2="1232.7" y2="330.3" stroke="#586069" stroke-width="1"/>
-<line x1="1532.5" y1="368.6" x2="1532.5" y2="402.6" stroke="#586069" stroke-width="1"/>
-<line x1="1532.5" y1="340.3" x2="1532.5" y2="308.3" stroke="#586069" stroke-width="1"/>
-<line x1="1428.8" y1="428.0" x2="1428.8" y2="458.0" stroke="#586069" stroke-width="1"/>
-<line x1="1428.8" y1="192.8" x2="1428.8" y2="222.8" stroke="#586069" stroke-width="1"/>
-<polygon points="1216.70,277.99 1219.52,285.63 1227.66,285.95 1221.27,290.99 1223.47,298.83 1216.70,294.31 1209.93,298.83 1212.13,290.99 1205.74,285.95 1213.88,285.63" fill="#3FB950" stroke="#161B22" stroke-width="1.6" stroke-linejoin="round"/>
-<polygon points="1216.70,259.50 1219.52,267.14 1227.66,267.46 1221.27,272.50 1223.47,280.34 1216.70,275.82 1209.93,280.34 1212.13,272.50 1205.74,267.46 1213.88,267.14" fill="#3FB950" stroke="#161B22" stroke-width="1.6" stroke-linejoin="round"/>
-<polygon points="1216.70,294.76 1219.52,302.40 1227.66,302.72 1221.27,307.76 1223.47,315.60 1216.70,311.08 1209.93,315.60 1212.13,307.76 1205.74,302.72 1213.88,302.40" fill="#3FB950" stroke="#161B22" stroke-width="1.6" stroke-linejoin="round"/>
-<circle cx="1532.47" cy="368.63" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<circle cx="1532.47" cy="340.25" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<circle cx="1428.79" cy="427.97" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<circle cx="1428.79" cy="192.76" r="6.00" fill="#58A6FF" stroke="#161B22" stroke-width="1.6"/>
-<rect x="1232.7" y="273.0" width="152.6" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="1237.7" y="285.2" fill="#3FB950" font-size="10.8" font-weight="600">Rules-Lite 28.4KB (0树)</text>
-<rect x="1232.7" y="228.5" width="135.3" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="1237.7" y="240.7" fill="#3FB950" font-size="10.8" font-weight="600">Rules-Compact 38.0KB</text>
-<rect x="1232.7" y="321.8" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="1237.7" y="334.0" fill="#3FB950" font-size="10.8" font-weight="600">Rules-Pro 43.1KB</text>
-<rect x="1477.4" y="394.1" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="1482.4" y="406.3" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Nano 1.22MB</text>
-<rect x="1477.4" y="299.8" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="1482.4" y="311.9" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Lite 7.05MB</text>
-<rect x="1373.7" y="449.5" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="1378.7" y="461.7" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Std 16.86MB</text>
-<rect x="1373.7" y="214.3" width="110.2" height="17.0" rx="3.5" fill="#161B22" fill-opacity="0.92" stroke="#2A313C" stroke-width="0.8"/><text x="1378.7" y="226.5" fill="#58A6FF" font-size="10.8" font-weight="600">v1.2 Pro 49.49MB</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1760 640" width="1760" height="640" role="img">
+<style>text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei UI", "PingFang SC", sans-serif; } .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }</style>
+<rect width="1760" height="640" rx="14" fill="#0D1117"/>
+<text x="30" y="40" fill="#F0F6FC" font-size="21" font-weight="800">自家家族对决：OjinjinRules v2.0（纯 ES5 JS） vs OjinjinNet v1.3（ONNX INT8）</text>
+<text x="30" y="63" fill="#8B949E" font-size="12.5">OjinjinBench-v2 盲测（1,476 条 · 33 个视频 · 综合赛道）· Rules-v2 Lite 实测 0.061 ms/20条（isAiReply 0.048 ms）· 0% 贴原点，100% 撑满顶轴</text>
+<text x="1165" y="38" fill="#3FB950" font-size="12.5" font-weight="700">★ OjinjinRules v2.0 (29–44KB JS)</text>
+<text x="1450" y="38" fill="#58A6FF" font-size="12.5" font-weight="700">● OjinjinNet v1.3 (ONNX + 1KB融合)</text>
+<rect x="30.0" y="82.0" width="554.0" height="534.0" rx="12" fill="#161B22" stroke="#30363D"/>
+<text x="48.0" y="110.0" fill="#F0F6FC" font-size="14.5" font-weight="700">1. 体积 vs 准确率 (Bench-v2 Best F0.5)</text>
+<rect x="86.0" y="130.0" width="136.5" height="260.4" fill="#3FB950" fill-opacity="0.10"/>
+<line x1="86.0" y1="564.0" x2="564.0" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="78.0" y="567.5" text-anchor="end" fill="#8B949E" font-size="10.5">90%</text>
+<line x1="86.0" y1="477.2" x2="564.0" y2="477.2" stroke="#242B35"/>
+<text class="mono" x="78.0" y="480.7" text-anchor="end" fill="#8B949E" font-size="10.5">92%</text>
+<line x1="86.0" y1="390.4" x2="564.0" y2="390.4" stroke="#242B35"/>
+<text class="mono" x="78.0" y="393.9" text-anchor="end" fill="#8B949E" font-size="10.5">94%</text>
+<line x1="86.0" y1="303.6" x2="564.0" y2="303.6" stroke="#242B35"/>
+<text class="mono" x="78.0" y="307.1" text-anchor="end" fill="#8B949E" font-size="10.5">96%</text>
+<line x1="86.0" y1="216.8" x2="564.0" y2="216.8" stroke="#242B35"/>
+<text class="mono" x="78.0" y="220.3" text-anchor="end" fill="#8B949E" font-size="10.5">98%</text>
+<line x1="86.0" y1="130.0" x2="564.0" y2="130.0" stroke="#242B35"/>
+<text class="mono" x="78.0" y="133.5" text-anchor="end" fill="#8B949E" font-size="10.5">100%</text>
+<line x1="86.0" y1="130.0" x2="86.0" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="86.0" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">10KB</text>
+<line x1="146.4" y1="130.0" x2="146.4" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="146.4" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">30KB</text>
+<line x1="212.5" y1="130.0" x2="212.5" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="212.5" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">100KB</text>
+<line x1="340.3" y1="130.0" x2="340.3" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="340.3" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">1MB</text>
+<line x1="466.9" y1="130.0" x2="466.9" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="466.9" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">10MB</text>
+<line x1="555.3" y1="130.0" x2="555.3" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="555.3" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">50MB</text>
+<rect x="86.0" y="130.0" width="478.0" height="434.0" fill="none" stroke="#30363D"/>
+<text x="325.0" y="602.0" text-anchor="middle" fill="#8B949E" font-size="11.5" font-weight="600">体积（对数：10 KB → 50 MB，越左越轻）</text>
+<polygon points="144.67,314.93 147.20,320.95 153.71,321.50 148.76,325.76 150.26,332.12 144.67,328.73 139.09,332.12 140.58,325.76 135.64,321.50 142.14,320.95" fill="#3FB950" stroke="#161B22" stroke-width="1.5"/>
+<polygon points="160.24,304.08 162.77,310.10 169.28,310.65 164.33,314.91 165.83,321.27 160.24,317.88 154.66,321.27 156.15,314.91 151.21,310.65 157.71,310.10" fill="#3FB950" stroke="#161B22" stroke-width="1.5"/>
+<polygon points="167.09,335.76 169.62,341.79 176.13,342.33 171.18,346.59 172.68,352.95 167.09,349.56 161.51,352.95 163.01,346.59 158.06,342.33 164.57,341.79" fill="#2DD4BF" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="351.3" cy="389.1" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="447.6" cy="309.2" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="495.6" cy="373.0" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="554.7" cy="289.3" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<line x1="554.7" y1="289.3" x2="540.7" y2="277.3" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="377.7" y="257.3" width="163.0" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="459.2" y="271.0" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="700">v1.3 Pro 49.5MB (96.3%)</text>
+<line x1="160.2" y1="313.6" x2="174.2" y2="301.6" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="174.2" y="281.6" width="201.9" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1"/>
+<text x="275.2" y="295.3" text-anchor="middle" fill="#3FB950" font-size="10.6" font-weight="700">Rules-v2 Compact 39KB (95.8%)</text>
+<line x1="447.6" y1="309.2" x2="433.6" y2="321.2" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="264.1" y="321.2" width="169.5" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="348.9" y="335.0" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="600">v1.3 Lite 7.05MB (95.9%)</text>
+<line x1="144.7" y1="324.4" x2="164.7" y2="356.4" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="164.7" y="356.4" width="182.5" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1"/>
+<text x="255.9" y="370.1" text-anchor="middle" fill="#3FB950" font-size="10.6" font-weight="700">Rules-v2 Lite 29KB (95.5%)</text>
+<line x1="167.1" y1="345.3" x2="197.1" y2="399.3" stroke="#2DD4BF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="197.1" y="399.3" width="176.0" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#2DD4BF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="285.1" y="413.0" text-anchor="middle" fill="#2DD4BF" font-size="10.6" font-weight="600">Rules-v2 Pro 44KB (95.0%)</text>
+<line x1="351.3" y1="389.1" x2="381.3" y2="443.1" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="381.3" y="443.1" width="169.5" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="466.0" y="456.8" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="600">v1.3 Nano 1.22MB (94.0%)</text>
+<line x1="495.6" y1="373.0" x2="479.6" y2="473.0" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="316.5" y="473.0" width="163.0" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="398.0" y="486.8" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="600">v1.3 Std 16.9MB (94.4%)</text>
+<rect x="603.0" y="82.0" width="554.0" height="534.0" rx="12" fill="#161B22" stroke="#30363D"/>
+<text x="621.0" y="110.0" fill="#F0F6FC" font-size="14.5" font-weight="700">2. 单页 20 条耗时 vs 召回率 (Bench-v2 R@P95%)</text>
+<rect x="659.0" y="130.0" width="74.2" height="260.4" fill="#3FB950" fill-opacity="0.10"/>
+<line x1="659.0" y1="564.0" x2="1137.0" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="651.0" y="567.5" text-anchor="end" fill="#8B949E" font-size="10.5">75%</text>
+<line x1="659.0" y1="477.2" x2="1137.0" y2="477.2" stroke="#242B35"/>
+<text class="mono" x="651.0" y="480.7" text-anchor="end" fill="#8B949E" font-size="10.5">80%</text>
+<line x1="659.0" y1="390.4" x2="1137.0" y2="390.4" stroke="#242B35"/>
+<text class="mono" x="651.0" y="393.9" text-anchor="end" fill="#8B949E" font-size="10.5">85%</text>
+<line x1="659.0" y1="303.6" x2="1137.0" y2="303.6" stroke="#242B35"/>
+<text class="mono" x="651.0" y="307.1" text-anchor="end" fill="#8B949E" font-size="10.5">90%</text>
+<line x1="659.0" y1="216.8" x2="1137.0" y2="216.8" stroke="#242B35"/>
+<text class="mono" x="651.0" y="220.3" text-anchor="end" fill="#8B949E" font-size="10.5">95%</text>
+<line x1="659.0" y1="130.0" x2="1137.0" y2="130.0" stroke="#242B35"/>
+<text class="mono" x="651.0" y="133.5" text-anchor="end" fill="#8B949E" font-size="10.5">100%</text>
+<line x1="671.5" y1="130.0" x2="671.5" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="671.5" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.05ms</text>
+<line x1="749.3" y1="130.0" x2="749.3" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="749.3" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.2ms</text>
+<line x1="839.6" y1="130.0" x2="839.6" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="839.6" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">1ms</text>
+<line x1="930.0" y1="130.0" x2="930.0" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="930.0" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">5ms</text>
+<line x1="1020.3" y1="130.0" x2="1020.3" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="1020.3" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">25ms</text>
+<line x1="1124.5" y1="130.0" x2="1124.5" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="1124.5" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">160ms</text>
+<rect x="659.0" y="130.0" width="478.0" height="434.0" fill="none" stroke="#30363D"/>
+<text x="898.0" y="602.0" text-anchor="middle" fill="#8B949E" font-size="11.5" font-weight="600">单页 20 条耗时（对数：0.04 ms → 200 ms，越左越快）</text>
+<polygon points="691.83,259.38 694.36,265.40 700.87,265.94 695.92,270.21 697.42,276.57 691.83,273.18 686.25,276.57 687.74,270.21 682.80,265.94 689.30,265.40" fill="#2DD4BF" stroke="#161B22" stroke-width="1.5"/>
+<polygon points="691.28,282.47 693.81,288.49 700.32,289.03 695.37,293.30 696.87,299.65 691.28,296.27 685.70,299.65 687.19,293.30 682.25,289.03 688.75,288.49" fill="#3FB950" stroke="#161B22" stroke-width="1.5"/>
+<polygon points="682.50,328.82 685.03,334.84 691.53,335.38 686.59,339.65 688.08,346.01 682.50,342.62 676.91,346.01 678.41,339.65 673.46,335.38 679.97,334.84" fill="#3FB950" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="875.4" cy="384.7" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="1018.7" cy="338.3" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="1123.6" cy="338.3" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<line x1="691.8" y1="268.9" x2="705.8" y2="260.9" stroke="#2DD4BF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="705.8" y="240.9" width="195.4" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#2DD4BF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="803.6" y="254.6" text-anchor="middle" fill="#2DD4BF" font-size="10.6" font-weight="700">Rules-v2 Pro 0.072ms (92.0%)</text>
+<line x1="691.3" y1="292.0" x2="707.3" y2="294.0" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="707.3" y="294.0" width="221.4" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1"/>
+<text x="818.0" y="307.7" text-anchor="middle" fill="#3FB950" font-size="10.6" font-weight="600">Rules-v2 Compact 0.071ms (90.7%)</text>
+<line x1="1123.6" y1="338.3" x2="1109.6" y2="352.3" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="953.0" y="352.3" width="156.6" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="1031.3" y="366.0" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="600">v1.3 Pro 157ms (88.0%)</text>
+<line x1="682.5" y1="338.3" x2="696.5" y2="338.3" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="696.5" y="328.3" width="201.9" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1"/>
+<text x="797.5" y="342.0" text-anchor="middle" fill="#3FB950" font-size="10.6" font-weight="600">Rules-v2 Lite 0.061ms (88.0%)</text>
+<line x1="1018.7" y1="338.3" x2="1018.7" y2="324.3" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="940.4" y="304.3" width="156.6" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="1018.7" y="318.0" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="600">v1.3 Lite 24ms (88.0%)</text>
+<line x1="875.4" y1="384.7" x2="875.4" y2="400.7" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="790.6" y="400.7" width="169.5" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="875.4" y="414.4" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="600">v1.3 Nano 1.89ms (85.3%)</text>
+<rect x="1176.0" y="82.0" width="554.0" height="534.0" rx="12" fill="#161B22" stroke="#30363D"/>
+<text x="1194.0" y="110.0" fill="#F0F6FC" font-size="14.5" font-weight="700">3. 高难真人误杀率 vs 准确率 (Bench-v2 · 0% 贴左)</text>
+<rect x="1232.0" y="130.0" width="63.7" height="260.4" fill="#3FB950" fill-opacity="0.12"/>
+<line x1="1232.0" y1="564.0" x2="1710.0" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="1224.0" y="567.5" text-anchor="end" fill="#8B949E" font-size="10.5">90%</text>
+<line x1="1232.0" y1="477.2" x2="1710.0" y2="477.2" stroke="#242B35"/>
+<text class="mono" x="1224.0" y="480.7" text-anchor="end" fill="#8B949E" font-size="10.5">92%</text>
+<line x1="1232.0" y1="390.4" x2="1710.0" y2="390.4" stroke="#242B35"/>
+<text class="mono" x="1224.0" y="393.9" text-anchor="end" fill="#8B949E" font-size="10.5">94%</text>
+<line x1="1232.0" y1="303.6" x2="1710.0" y2="303.6" stroke="#242B35"/>
+<text class="mono" x="1224.0" y="307.1" text-anchor="end" fill="#8B949E" font-size="10.5">96%</text>
+<line x1="1232.0" y1="216.8" x2="1710.0" y2="216.8" stroke="#242B35"/>
+<text class="mono" x="1224.0" y="220.3" text-anchor="end" fill="#8B949E" font-size="10.5">98%</text>
+<line x1="1232.0" y1="130.0" x2="1710.0" y2="130.0" stroke="#242B35"/>
+<text class="mono" x="1224.0" y="133.5" text-anchor="end" fill="#8B949E" font-size="10.5">100%</text>
+<line x1="1232.0" y1="130.0" x2="1232.0" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="1232.0" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.0%</text>
+<line x1="1327.6" y1="130.0" x2="1327.6" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="1327.6" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.3%</text>
+<line x1="1423.2" y1="130.0" x2="1423.2" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="1423.2" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.6%</text>
+<line x1="1518.8" y1="130.0" x2="1518.8" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="1518.8" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">0.9%</text>
+<line x1="1614.4" y1="130.0" x2="1614.4" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="1614.4" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">1.2%</text>
+<line x1="1710.0" y1="130.0" x2="1710.0" y2="564.0" stroke="#242B35"/>
+<text class="mono" x="1710.0" y="580.0" text-anchor="middle" fill="#8B949E" font-size="10.5">1.5%</text>
+<rect x="1232.0" y="130.0" width="478.0" height="434.0" fill="none" stroke="#30363D"/>
+<text x="1471.0" y="602.0" text-anchor="middle" fill="#8B949E" font-size="11.5" font-weight="600">高难真人误杀率 @P95（0.0% 贴齐左轴，越左越安全）</text>
+<circle cx="1232.0" cy="289.3" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<polygon points="1232.00,304.08 1234.53,310.10 1241.04,310.65 1236.09,314.91 1237.58,321.27 1232.00,317.88 1226.42,321.27 1227.91,314.91 1222.96,310.65 1229.47,310.10" fill="#3FB950" stroke="#161B22" stroke-width="1.5"/>
+<polygon points="1232.00,314.93 1234.53,320.95 1241.04,321.50 1236.09,325.76 1237.58,332.12 1232.00,328.73 1226.42,332.12 1227.91,325.76 1222.96,321.50 1229.47,320.95" fill="#3FB950" stroke="#161B22" stroke-width="1.5"/>
+<polygon points="1232.00,335.76 1234.53,341.79 1241.04,342.33 1236.09,346.59 1237.58,352.95 1232.00,349.56 1226.42,352.95 1227.91,346.59 1222.96,342.33 1229.47,341.79" fill="#2DD4BF" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="1232.0" cy="389.1" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="1369.3" cy="309.2" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<circle cx="1369.3" cy="373.0" r="6.2" fill="#58A6FF" stroke="#161B22" stroke-width="1.5"/>
+<line x1="1232.0" y1="289.3" x2="1250.0" y2="285.3" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="1250.0" y="265.3" width="169.5" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="1334.8" y="279.0" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="700">v1.3 Pro (96.3% / 0.00%)</text>
+<line x1="1232.0" y1="313.6" x2="1246.0" y2="325.6" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="1246.0" y="325.6" width="221.4" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1"/>
+<text x="1356.7" y="339.3" text-anchor="middle" fill="#3FB950" font-size="10.6" font-weight="700">Rules-v2 Compact (95.8% / 0.00%)</text>
+<line x1="1369.3" y1="309.2" x2="1385.3" y2="309.2" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="1385.3" y="297.2" width="176.0" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="1473.3" y="311.0" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="600">v1.3 Lite (95.9% / 0.43%)</text>
+<line x1="1232.0" y1="324.4" x2="1248.0" y2="224.4" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="1248.0" y="204.4" width="201.9" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#3FB950" stroke-opacity="0.55" stroke-width="1"/>
+<text x="1349.0" y="218.1" text-anchor="middle" fill="#3FB950" font-size="10.6" font-weight="600">Rules-v2 Lite (95.5% / 0.00%)</text>
+<line x1="1232.0" y1="345.3" x2="1250.0" y2="399.3" stroke="#2DD4BF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="1250.0" y="399.3" width="195.4" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#2DD4BF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="1347.7" y="413.0" text-anchor="middle" fill="#2DD4BF" font-size="10.6" font-weight="600">Rules-v2 Pro (95.0% / 0.00%)</text>
+<line x1="1369.3" y1="373.0" x2="1385.3" y2="375.0" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="1385.3" y="375.0" width="169.5" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="1470.1" y="388.8" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="600">v1.3 Std (94.4% / 0.43%)</text>
+<line x1="1232.0" y1="389.1" x2="1250.0" y2="465.1" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1.1"/>
+<rect x="1250.0" y="465.1" width="176.0" height="20.0" rx="4.5" fill="#0D1524" fill-opacity="0.94" stroke="#58A6FF" stroke-opacity="0.55" stroke-width="1"/>
+<text x="1338.0" y="478.8" text-anchor="middle" fill="#58A6FF" font-size="10.6" font-weight="600">v1.3 Nano (94.0% / 0.00%)</text>
 </svg>
