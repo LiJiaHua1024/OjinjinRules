@@ -1,0 +1,28 @@
+{
+  "name": "ojinjin-rules",
+  "version": "1.0.0",
+  "description": "Zero-dependency pure ES5 JavaScript distilled static rule engine for Bilibili AI/bot comment detection (28.4 KB raw / 10 KB gzip, ~3.4 us/comment scoreReply, ~2.8 us isAiReply, no WASM/ONNX/network).",
+  "main": "dist/ojinjin-rules-lite.js",
+  "files": [
+    "dist/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node test/smoke.js"
+  },
+  "keywords": [
+    "bilibili",
+    "comment-filter",
+    "userscript",
+    "distilled-rules",
+    "es5",
+    "zero-dependency",
+    "ai-detection"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LiJiaHua1024/OjinjinRules.git"
+  }
+}
