@@ -1,7 +1,7 @@
 {
   "name": "ojinjin-rules",
-  "version": "2.0.0",
-  "description": "Zero-dependency pure ES5 JavaScript distilled static rule engine for Bilibili AI/bot comment detection (v2.0 distilled from OjinjinNet v1.3 on 30,347 real-mix comments; 29 KB raw / ~10 KB gzip, ~3-5 us/comment, no WASM/ONNX/network).",
+  "version": "2.1.0",
+  "description": "Zero-dependency pure ES5 JavaScript distilled static rule engine for Bilibili AI/bot comment detection (v2.1 distilled from OjinjinNet v1.4; 29-44 KB raw / 9.9-15.7 KB gzip, ~4-5 us/comment, no WASM/ONNX/network).",
   "main": "dist/ojinjin-rules-lite.js",
   "files": [
     "dist/",
